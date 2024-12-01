@@ -1,3 +1,6 @@
+import "ListUtil"
+import "MapUtil"
+
 fileName = "day1\input.txt"
 lines = file.readLines(fileName)
 
@@ -19,4 +22,13 @@ for i in range(0 , left.len-1)
     distance = distance + abs(left[i] - right[i])
 end for
 
-print distance
+print "Distance: " + distance
+
+countMap = right.counts
+similarity = 0
+
+for value in left
+    similarity = similarity + value * countMap.get(value, 0)
+end for
+
+print "Similarity: " + similarity
